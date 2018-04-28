@@ -29,3 +29,50 @@ gcc client.c -o client
 # We will be asked to choose one among them
 # Type the file name and the file will be downloaded
 ```
+### QUESTION-2
+
+#### 2_1: PERSISTANT CONNECTION
+
+In this type of connection, the connection is maintained once it is established and all the files are transfered through this connection only. TCP Protocol is used in this code snipet and multiple files can be transfered as shown below:
+
+**Code Snippet:**
+
+```bash
+cd Q2/Server
+gcc server_persistant.c -o server_persistant
+./server_persistant
+# Now the server is listening to the clients(if no errors in starting the server).
+# Don't close this terminal for the second part given below but open a new terminal.
+```
+
+```bash
+# To check the server-client connection
+cd Q2/Client
+gcc client_persistant.c -o client_persistant
+./client_persistant fileName1 fileName2 fileName3 fileName4
+# The above file names will be checked if they are present in the "Data" folder of the server and downloaded if they are present
+```
+
+#### 2_2: NON-PERSISTANT CONNECTION
+
+In this type of connection, every time a new file is requested or is sent from the server side, a new connection over the socket is opened. Here also the code uses the TCP Protocol.
+
+**Code Snippet:**
+
+```bash
+cd Q2/Server
+gcc server_persistant.c -o server_persistant
+./server_persistant
+# Now the server is listening to the clients(if no errors in starting the server).
+# Don't close this terminal for the second part given below but open a new terminal.
+```
+
+```bash
+# To check the server-client connection
+cd Q2/Client
+gcc client_nonpersistant.c -o client_nonpersistant
+./client_nonpersistant fileName1 fileName2 fileName3 fileName4
+# The above file names will be checked if they are present in the "Data" folder of the server and downloaded if they are present
+```
+
+- The Persistant connection proved to be faster than Non-Persistant connection when more than 100 files where transfered all together.
